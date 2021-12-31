@@ -193,4 +193,12 @@ body {
   left: 0;
   top: 0;
 }
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+}
 /*# sourceMappingURL=style.css.map */
