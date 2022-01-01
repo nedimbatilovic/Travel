@@ -71,9 +71,6 @@ body {
     position: relative;
     flex: 1;
     flex-basis: 25rem;
-}
-
-.hero-img {
     img {
         width: 100%;
         height: 100%;
@@ -144,15 +141,15 @@ body {
     }
 }
 
-.reveal-img,
-.reveal-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #17181a;
-    left: 0;
-    top: 0;
-}
+// .reveal-img,
+// .reveal-text {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     background: #17181a;
+//     left: 0;
+//     top: 0;
+// }
 
 .cursor {
     width: 3rem;
