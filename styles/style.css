@@ -32,6 +32,7 @@ body {
   width: 80%;
   margin: auto;
   padding: 2rem 0rem;
+  z-index: 2;
 }
 
 .line1,
@@ -151,10 +152,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 2;
   opacity: 1;
   clip-path: circle(50px at 100% -10%);
   -webkit-clip-path: circle(50px at 100% -10%);
+  z-index: 2;
 }
 
 .burger {
@@ -204,6 +205,64 @@ body {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition-property: background, -webkit-transform;
+  transition-property: background, -webkit-transform;
+  transition-property: background, transform;
+  transition-property: background, transform, -webkit-transform;
+  -webkit-transform-origin: 75% 75%;
+          transform-origin: 75% 75%;
+}
+
+.cursor.nav-active {
+  background: #567ce4;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.cursor.explore-active {
+  background: white;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.cursor-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.5rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.title {
+  position: relative;
+  overflow: hidden;
+}
+
+.title-swipe {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  mix-blend-mode: darken;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.t-swipe1 {
+  background: #567ce4;
+}
+
+.t-swipe2 {
+  background: #a76ee7;
+}
+
+.t-swipe3 {
+  background: #ff8b5d;
 }
 
 .scrollmagic-pin-spacer {

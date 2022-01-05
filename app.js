@@ -61,12 +61,41 @@ function animateSlides() {
     });
 }
 
+const mouse = document.querySelector(".cursor");
+const mouseTxt = mouse.querySelector("span");
+const burger = document.querySelector(".burger");
+
 function cursor(e) {
-    let mouse = document.querySelector(".cursor");
     mouse.style.top = e.pageY + "px";
     mouse.style.left = e.pageX + "px";
 }
 
+function activeCursor(e) {
+    const item = e.target;
+    if (item.id == "logo" || item.classList.contains("burger")) {
+        mouse.classList.add("nav-active");
+    } else {
+        mouse.classList.remove("nav-active");
+    }
+
+    if (item.classList.contains("explore")) {
+        mouse.classList.add("explore-active");
+        gsap.to(".title-swipe", 1, { y: "0%" });
+        mouseTxt.innerText = "Tap";
+    } else {
+        mouse.classList.remove("explore-active");
+        gsap.to(".title-swipe", 1, { y: "100%" });
+        mouseTxt.innerText = "";
+    }
+}
+
+function navToggle(e) {
+    gsap.to(".line1", 0.5, { rotate: "45", y: 5 });
+    gsap.to(".line2", 0.5, { rotate: "-45", y: -5 });
+}
+
+burger.addEventListener("click", navToggle);
 window.addEventListener("mousemove", cursor);
+window.addEventListener("mouseover", activeCursor);
 
 animateSlides();
