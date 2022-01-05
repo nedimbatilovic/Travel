@@ -22,17 +22,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   color: white;
   width: 80%;
   margin: auto;
   padding: 2rem 0rem;
   z-index: 2;
+  position: relative;
 }
 
 .line1,
@@ -152,10 +153,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
   opacity: 1;
   clip-path: circle(50px at 100% -10%);
   -webkit-clip-path: circle(50px at 100% -10%);
-  z-index: 2;
 }
 
 .burger {
@@ -206,8 +207,8 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   pointer-events: none;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   -webkit-transition-property: background, -webkit-transform;
   transition-property: background, -webkit-transform;
   transition-property: background, transform;
@@ -218,14 +219,14 @@ body {
 
 .cursor.nav-active {
   background: #567ce4;
-  -webkit-transform: scale(2);
-          transform: scale(2);
+  -webkit-transform: scale(3);
+          transform: scale(3);
 }
 
 .cursor.explore-active {
   background: white;
-  -webkit-transform: scale(2);
-          transform: scale(2);
+  -webkit-transform: scale(3);
+          transform: scale(3);
 }
 
 .cursor-text {

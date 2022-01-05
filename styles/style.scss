@@ -19,13 +19,14 @@ body {
     min-height: 10vh;
     font-size: 1rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     color: white;
     width: 80%;
     margin: auto;
     padding: 2rem 0rem;
     z-index: 2;
+    position: relative;
 }
 
 .line1,
@@ -113,10 +114,10 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1;
     opacity: 1;
     clip-path: circle(50px at 100% -10%);
     -webkit-clip-path: circle(50px at 100% -10%);
-    z-index: 2;
 }
 
 .burger {
@@ -162,16 +163,16 @@ body {
     position: absolute;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     transition-property: background, transform;
     transform-origin: 75% 75%;
     &.nav-active {
         background: rgb(86, 124, 228);
-        transform: scale(2);
+        transform: scale(3);
     }
     &.explore-active {
         background: white;
-        transform: scale(2);
+        transform: scale(3);
     }
 }
 
