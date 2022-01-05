@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+body.hide {
+  overflow: hidden;
+}
+
 #logo {
   color: white;
   font-family: "Abril Fatface";
