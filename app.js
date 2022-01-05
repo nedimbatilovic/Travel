@@ -1,13 +1,13 @@
 let controller;
 let slideScene;
 let pageScene;
+let detailScene;
 
 function animateSlides() {
     controller = new ScrollMagic.Controller();
 
     const sliders = document.querySelectorAll(".slide");
     const nav = document.querySelector(".nav-header");
-
     sliders.forEach((slide, index, slides) => {
         const revealImg = slide.querySelector(".reveal-img");
         const img = slide.querySelector("img");
@@ -61,10 +61,30 @@ function animateSlides() {
     });
 }
 
+function detailAnimation() {
+    controller = new ScrollMagic.Controller();
+    const slides = document.querySelectorAll(".detail-slide");
+    slides.forEach((slide, index, slides) => {
+        const slideTl = gsap.timeline({ defaults: { duration: 1 } });
+        let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
+        const nextImg = nextSlide.querySelector("img");
+        slideTl.fromTo(slide, { opacity: 1 }, { opacity: 0 });
+        slideTl.fromTo(nextSlide, { opacity: 0 }, { opacity: 1 }, "-=1");
+
+        detailScene = new ScrollMagic.Scene({
+            triggerElement: slide,
+            duration: "100%",
+            triggerHook: 0,
+        })
+            .setPin(slide, { pushFollowers: false })
+            .setTween(slideTl)
+            .addTo(controller);
+    });
+}
+
 const mouse = document.querySelector(".cursor");
 const mouseTxt = mouse.querySelector("span");
 const burger = document.querySelector(".burger");
-
 function cursor(e) {
     mouse.style.top = e.pageY + "px";
     mouse.style.left = e.pageX + "px";
@@ -81,7 +101,7 @@ function activeCursor(e) {
     if (item.classList.contains("explore")) {
         mouse.classList.add("explore-active");
         gsap.to(".title-swipe", 1, { y: "0%" });
-        mouseTxt.innerText = "Tap";
+        mouseTxt.innerText = "Click";
     } else {
         mouse.classList.remove("explore-active");
         gsap.to(".title-swipe", 1, { y: "100%" });
@@ -126,12 +146,17 @@ barba.init({
             namespace: "fashion",
             beforeEnter() {
                 logo.href = "../index.html";
+                detailAnimation();
                 gsap.fromTo(
                     ".nav-header",
                     1,
                     { y: "100%" },
                     { y: "0%", ease: "power2.inOut" }
                 );
+            },
+            beforeLeave() {
+                controller.destroy();
+                detailScene.destroy();
             },
         },
     ],
