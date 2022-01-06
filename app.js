@@ -43,12 +43,6 @@ function animateSlides() {
             duration: "100%",
             triggerHook: 0,
         })
-            .addIndicators({
-                colorStart: "white",
-                colorTrigger: "white",
-                name: "page",
-                indent: 200,
-            })
             .setPin(slide, { pushFollowers: false })
             .setTween(pageTl)
             .addTo(controller);
