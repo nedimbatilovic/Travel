@@ -25,11 +25,6 @@ function animateSlides() {
             triggerHook: 0.25,
             reverse: false,
         })
-            .addIndicators({
-                colorStart: "white",
-                colorTrigger: "white",
-                name: "slide",
-            })
             .setTween(slideTl)
             .addTo(controller);
 
